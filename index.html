@@ -1,401 +1,590 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Varun Kumar C S</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: #f7f5f0;
-      color: #1c1a17;
-      font-family: 'Newsreader', Georgia, serif;
-    }
-    a {
-      color: #3d5a80;
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-    }
-    a:hover { color: #1c1a17; }
-    ::selection { background: #e3ddd0; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Varun Kumar C S</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 40px; }
+body {
+  margin: 0;
+  background: #f7f5f0;
+  color: #1c1a17;
+  font-family: 'Newsreader', Georgia, serif;
+}
+a {
+  color: #3d5a80;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: #1c1a17; }
+::selection { background: #e3ddd0; }
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 0 24px;
+}
+main {
+  width: 100%;
+  max-width: 620px;
+  padding: 96px 0 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 0 24px;
-    }
-    main {
-      width: 100%;
-      max-width: 620px;
-      padding: 96px 0 80px;
-      display: flex;
-      flex-direction: column;
-      gap: 56px;
-    }
+/* Section labels */
+.label {
+  margin: 0 0 2px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8a8578;
+}
+.label-gap6 { margin: 0 0 6px; }
 
-    /* Section labels */
-    .label {
-      margin: 0 0 2px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #8a8578;
-    }
-    .label-gap6 { margin: 0 0 6px; }
+/* Header */
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+.contact a {
+  color: #57534a;
+  text-decoration: none;
+}
+.contact a:hover { color: #1c1a17; text-decoration: underline; }
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.nav a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #57534a;
+  text-decoration: none;
+  border: 1px solid #d9d2c4;
+  border-radius: 4px;
+  padding: 7px 13px;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.nav a:hover {
+  background: #1c1a17;
+  color: #f7f5f0;
+  border-color: #1c1a17;
+}
+.nav a.active {
+  background: #1c1a17;
+  color: #f7f5f0;
+  border-color: #1c1a17;
+}
+header h1 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+header p {
+  margin: 0;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.4;
+  color: #57534a;
+}
 
-    /* Header */
-    header {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 42px;
-      font-weight: 500;
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-    }
-    header p {
-      margin: 0;
-      font-size: 22px;
-      font-style: italic;
-      line-height: 1.4;
-      color: #57534a;
-    }
+/* About */
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 19px;
+  line-height: 1.65;
+}
+.about p { margin: 0; }
 
-    /* About */
-    .about {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      font-size: 19px;
-      line-height: 1.65;
-    }
-    .about p { margin: 0; }
+/* Writings */
+.writings {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.writings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.writings-list a {
+  font-size: 19px;
+  line-height: 1.45;
+}
 
-    /* Writings */
-    .writings {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .writings-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .writings-list a {
-      font-size: 19px;
-      line-height: 1.45;
-    }
+/* Experience */
+.experience {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.experience-item {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+}
+.experience-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.experience-title {
+  font-size: 19px;
+  font-weight: 600;
+}
+.experience-desc {
+  font-size: 17px;
+  line-height: 1.5;
+  color: #57534a;
+}
+.experience-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  color: #8a8578;
+  white-space: nowrap;
+}
 
-    /* Experience */
-    .experience {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-    .experience-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .experience-item {
-      display: flex;
-      align-items: baseline;
-      gap: 22px;
-    }
-    .experience-info {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-    .experience-title {
-      font-size: 19px;
-      font-weight: 600;
-    }
-    .experience-desc {
-      font-size: 17px;
-      line-height: 1.5;
-      color: #57534a;
-    }
-    .experience-date {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12.5px;
-      color: #8a8578;
-      white-space: nowrap;
-    }
+/* Passion Projects */
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.project-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.project-title {
+  font-size: 19px;
+  font-weight: 600;
+}
+.project-desc {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #57534a;
+}
+.project-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #57534a;
+}
+.project-list li + li {
+  margin-top: 4px;
+}
 
-    /* Passion Projects */
-    .projects {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    .project-item {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .project-title {
-      font-size: 19px;
-      font-weight: 600;
-    }
-    .project-desc {
-      margin: 0;
-      font-size: 17px;
-      line-height: 1.6;
-      color: #57534a;
-    }
-    .project-list {
-      margin: 0;
-      padding-left: 20px;
-      font-size: 17px;
-      line-height: 1.6;
-      color: #57534a;
-    }
-    .project-list li + li {
-      margin-top: 4px;
-    }
+/* Books */
+.books {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.books-intro {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.4;
+  color: #57534a;
+}
 
-    /* Books */
-    .books {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .books-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 32px;
-      row-gap: 12px;
-    }
-    .book-entry {
-      font-size: 17px;
-      line-height: 1.45;
-    }
-    .book-author { color: #8a8578; }
+.book-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  color: #a8a294;
+}
+.book-head {
+  font-size: 19px;
+  line-height: 1.35;
+}
+.book-title { font-weight: 600; }
+.book-author { color: #8a8578; }
 
-    /* Education */
-    .education {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .edu-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .edu-name {
-      font-size: 19px;
-      font-weight: 600;
-    }
-    .edu-detail {
-      font-size: 17px;
-      color: #57534a;
-    }
-    .edu-detail p {
-      margin: 0;
-      font-size: 17px;
-      line-height: 1.6;
-      color: #57534a;
-    }
+/* Featured entries */
+.books-featured {
+  display: flex;
+  flex-direction: column;
+}
+.book-feature {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  column-gap: 16px;
+  padding: 22px 0;
+  border-top: 1px solid #e3ddd0;
+}
+.book-feature:first-child {
+  border-top: none;
+  padding-top: 4px;
+}
+.book-feature .book-num { padding-top: 5px; }
+.book-body {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.book-note {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.62;
+  color: #57534a;
+}
 
-    /* Footer */
-    footer {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      border-top: 1px solid #e3ddd0;
-      padding-top: 28px;
-      font-size: 17px;
-    }
+/* Toggle */
+.books-toggle {
+  align-self: flex-start;
+  margin-top: 6px;
+  background: none;
+  border: none;
+  padding: 6px 0;
+  cursor: pointer;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3d5a80;
+}
+.books-toggle:hover { color: #1c1a17; }
 
-    @media (max-width: 500px) {
-      .books-grid { grid-template-columns: 1fr; }
-      .experience-item { flex-direction: column; gap: 4px; }
-    }
-  </style>
+/* Collapsed list */
+.books-more {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.45s ease;
+}
+.books-more.open { max-height: 1600px; }
+.book-line {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  column-gap: 16px;
+  align-items: baseline;
+  padding: 11px 0;
+  border-top: 1px solid #e3ddd0;
+}
+.book-line:first-child { border-top: none; }
+
+/* Education */
+.education {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.edu-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.edu-name {
+  font-size: 19px;
+  font-weight: 600;
+}
+.edu-detail {
+  font-size: 17px;
+  color: #57534a;
+}
+.edu-detail p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #57534a;
+}
+
+/* Contact section */
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 17px;
+}
+
+@media (max-width: 500px) {
+  .experience-item { flex-direction: column; gap: 4px; }
+}
+</style>
 </head>
 <body>
 <div class="page">
-  <main>
+<main>
 
-    <header>
-      <h1>Varun Kumar C&nbsp;S</h1>
-      <p>Exploring what a platform looks like at the intersection of mass media, journalism, prediction markets and crypto networks.</p>
-    </header>
-
-    <section class="about">
-      <h2 class="label">About</h2>
-      <p>From the time I can remember, I've had a burning need to understand where the world came from, how it works, and where it is heading. Growing up, that meant absorbing everything — newspapers, television, books, the internet, social media, podcasts and so on. Newspapers gave us a daily record of the world. Television let us watch it as it happened. Podcasts let anyone go deep on anything. Social media handed the audience a microphone. Each layer moved the public closer to the information. But none of them let people price what they believe.</p>
-      <p>Prediction markets are where that gap closes for me. Take a question like "Will there be an Ebola pandemic in 2026?" A headline about an outbreak is written to be read. A viral post is written to be shared. Neither pays a price for being wrong. But when someone places a bet on that question, they have to weigh everything they've read against what they're willing to lose — and the market price that emerges is a signal none of the other layers can produce: what people actually believe, with money behind it. That's not a replacement for existing media — it's a new layer on top of it, one that lets society collectively build a more accurate picture of the world.</p>
-      <p>The question I'm sitting with now: understanding where existing prediction markets like Polymarket and Kalshi fall short, and whether it's a gap I can solve.</p>
-    </section>
-
-    <section class="about">
-      <h2 class="label">Passion for Crypto</h2>
-      <p>What struck me most is that these aren't just financial networks. They're self-governing systems — networks that organize resources, coordinate strangers, and evolve their own rules without central control. The idea that you can align stakeholders and users by design, rather than by institution, is the most interesting organizational primitive I've encountered. Most people see prices. I see a new way of organizing human effort, still in its earliest chapters.</p>
-    </section>
-
-    <section class="about">
-      <h2 class="label">Skill</h2>
-      <p>I've built my career in business development — the craft of taking something new and getting the world to adopt it. Frontier technology doesn't spread on its own merits; someone has to understand it deeply, find the people it serves, and close the gap between the two. That's the work I do.</p>
-    </section>
-
-    <section class="writings">
-      <h2 class="label label-gap6">Writings</h2>
-      <div class="writings-list">
-        <a href="https://csvarun.substack.com/p/everything-ive-learnt-from-doing" target="_blank" rel="noopener noreferrer">Notes from a career in BD</a>
-        <a href="https://paragraph.com/@cryptokumar/longterm-economic-sustainability-moat-for-blockchains-after-defi-its-data" target="_blank" rel="noopener noreferrer">Longterm economic sustainability &amp; moat for blockchains — after DeFi, it's Data</a>
-        <a href="https://paragraph.com/@cryptokumar/de-fi-datafi-the-digital-economy-nfts-data-as-oil" target="_blank" rel="noopener noreferrer">DeFi &amp; DataFi — the digital economy, NFTs &amp; data as oil</a>
-        <a href="https://paragraph.com/@cryptokumar/ranting-about-data-availability" target="_blank" rel="noopener noreferrer">Ranting About Data Availability</a>
-        <a href="https://paragraph.com/@cryptokumar/a-self-curated-curriculum-to-learn-blockchain" target="_blank" rel="noopener noreferrer">A self-curated curriculum to learn blockchain</a>
-        <a href="https://csvarun.substack.com/p/i-went-to-clean-a-mountain" target="_blank" rel="noopener noreferrer">I Went to Clean a Mountain</a>
-      </div>
-    </section>
-
-    <section class="experience">
-      <h2 class="label">Experience</h2>
-      <div class="experience-list">
-        <div class="experience-item">
-          <div class="experience-info">
-            <div class="experience-title">Business Development · Gelato Network</div>
-            <div class="experience-desc">Growing adoption of rollup infrastructure and web3 automation.</div>
-          </div>
-          <div class="experience-date">Feb '24 — now</div>
-        </div>
-        <div class="experience-item">
-          <div class="experience-info">
-            <div class="experience-title">Independent research &amp; advisory</div>
-            <div class="experience-desc">Contributed to Safe's token utility framework; value-accrual outlook for a rollup framework.</div>
-          </div>
-          <div class="experience-date">Mar '23 — Jan '24</div>
-        </div>
-        <div class="experience-item">
-          <div class="experience-info">
-            <div class="experience-title">Research &amp; Strategy · Polygon</div>
-            <div class="experience-desc">Ecosystem research and strategy through Polygon's fastest-growing years.</div>
-          </div>
-          <div class="experience-date">Aug '21 — Jan '23</div>
-        </div>
-        <div class="experience-item">
-          <div class="experience-info">
-            <div class="experience-title">CRM Solutions Consultant · LeadSquared</div>
-            <div class="experience-desc">Full-stack enterprise sales — grew from 10 to 100 enterprise customers, past $1M ARR.</div>
-          </div>
-          <div class="experience-date">Feb '20 — Jul '21</div>
-        </div>
-        <div class="experience-item">
-          <div class="experience-info">
-            <div class="experience-title">Sales &amp; Marketing · Tydy</div>
-            <div class="experience-desc">Discovering product-market fit — grew from 1 to 10 enterprise customers with $0 in marketing.</div>
-          </div>
-          <div class="experience-date">Oct '18 — Jan '20</div>
-        </div>
-        <div class="experience-item">
-          <div class="experience-info">
-            <div class="experience-title">Employee Engagement Consultant · d'frens</div>
-            <div class="experience-desc">650+ sessions on employee engagement and internal communication with HR teams at MBRDI, MetLife &amp; Fidelity.</div>
-          </div>
-          <div class="experience-date">Aug '15 — Sep '18</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="projects">
-      <h2 class="label">Passion Projects</h2>
-      <div class="project-item">
-        <div class="project-title">Agent Vikram</div>
-        <p class="project-desc"><a href="https://www.instagram.com/agent.vikram26/" target="_blank" rel="noopener noreferrer">AI agent</a> tracking macro signals that move BTC, ETH, gold and global markets.</p>
-      </div>
-      <div class="project-item">
-        <div class="project-title">Data as the next moat for blockchains</div>
-        <p class="project-desc"><a href="https://paragraph.com/@cryptokumar/longterm-economic-sustainability-moat-for-blockchains-after-defi-its-data" target="_blank" rel="noopener noreferrer">I asked what the next economic layer after DeFi would be</a>, and made the case for tokenized user data. Years later, Worldcoin and Vana built ecosystems around it.</p>
-      </div>
-      <div class="project-item">
-        <div class="project-title">Token utility</div>
-        <ul class="project-list">
-          <li>Proposed a utility framework for <a href="https://forum.safefoundation.org/t/exploring-the-safe-token-call-for-input-submissions/3952/3?u=varunkcs" target="_blank" rel="noopener noreferrer">Safe's token launch</a>.</li>
-          <li>Built a hackathon <a href="https://www.youtube.com/watch?v=CNS1j-SWHsE&t=10s" target="_blank" rel="noopener noreferrer">NFT project</a> incentivizing carbon-negative consumer behavior.</li>
-        </ul>
-      </div>
-      <div class="project-item">
-        <div class="project-title">I Went to Clean a Mountain</div>
-        <p class="project-desc">An <a href="https://csvarun.substack.com/p/i-went-to-clean-a-mountain" target="_blank" rel="noopener noreferrer">essay on running a waste-management operation</a> in the Himalayas, and realizing what grassroots effort alone can't fix.</p>
-      </div>
-    </section>
-
-    <section class="about">
-      <h2 class="label">Off the Clock</h2>
-      <p>I write and I code. Blogging is how I think out loud. Hacking on personal projects is how I keep my hands dirty and my ideas honest.</p>
-    </section>
-
-    <section class="about">
-      <h2 class="label">Lifestyle</h2>
-      <p>Martial arts, meditation, and the long project of eating better.</p>
-    </section>
-
-    <section class="books">
-      <h2 class="label label-gap6">Books</h2>
-      <div class="books-grid">
-        <div class="book-entry">Dopamine Nation <span class="book-author">— Anna Lembke</span></div>
-        <div class="book-entry">1984 <span class="book-author">— George Orwell</span></div>
-        <div class="book-entry">The Submission Experiment <span class="book-author">— Michelle Santner</span></div>
-        <div class="book-entry">Driven to Distraction <span class="book-author">— Edward M. Hallowell</span></div>
-        <div class="book-entry">Radical Markets <span class="book-author">— Eric Glen Weyl</span></div>
-        <div class="book-entry">Guns, Germs &amp; Steel <span class="book-author">— Jared Diamond</span></div>
-        <div class="book-entry">Token Economy <span class="book-author">— Shermin Voshmgir</span></div>
-        <div class="book-entry">Think Again <span class="book-author">— Adam Grant</span></div>
-        <div class="book-entry">The Social Contract <span class="book-author">— Jean-Jacques Rousseau</span></div>
-        <div class="book-entry">Brave New World <span class="book-author">— Aldous Huxley</span></div>
-        <div class="book-entry">The Almanack of Naval Ravikant <span class="book-author">— Eric Jorgenson</span></div>
-        <div class="book-entry">Originals <span class="book-author">— Adam Grant</span></div>
-        <div class="book-entry">A Clockwork Orange <span class="book-author">— Anthony Burgess</span></div>
-        <div class="book-entry">Scale <span class="book-author">— Geoffrey West</span></div>
-        <div class="book-entry">The Book of Five Rings <span class="book-author">— Miyamoto Musashi</span></div>
-        <div class="book-entry">The World for Sale <span class="book-author">— Javier Blas &amp; Jack Farchy</span></div>
-        <div class="book-entry">Read Write Own <span class="book-author">— Chris Dixon</span></div>
-        <div class="book-entry">Material World <span class="book-author">— Ed Conway</span></div>
-        <div class="book-entry">Debt: The First 5,000 Years <span class="book-author">— David Graeber</span></div>
-        <div class="book-entry">Imagined Communities <span class="book-author">— Benedict Anderson</span></div>
-      </div>
-    </section>
-
-    <section class="education">
-      <h2 class="label">Education</h2>
-      <div class="edu-item">
-        <div class="edu-name">Visvesvaraya Technological University</div>
-        <div class="edu-detail">Engineer's Degree · 2014 — 2018</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-name">Certifications</div>
-        <div class="edu-detail">
-          <p>Harvard CS50x &amp; CS50w · Blockchain Specialization, University at Buffalo · Token Engineering Fundamentals, TE Academy · LearnWeb3 Ethereum Developer Degree</p>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <a href="mailto:csvarunkumar26@gmail.com">Email - csvarunkumar26@gmail.com</a>
-      <a href="https://x.com/csvarun26396" target="_blank" rel="noopener noreferrer">X - @csvarun26396</a>
-      <a href="https://substack.com/@csvarun" target="_blank" rel="noopener noreferrer">Substack- csvarun</a>
-      <a href="https://www.linkedin.com/in/csvarun26396/" target="_blank" rel="noopener noreferrer">Linkedin - Varun Kumar</a>
-      <a href="https://github.com/Varunk26" target="_blank" rel="noopener noreferrer">Github - Varunk26</a>
-    </footer>
-
-  </main>
+<header>
+<div class="contact">
+<a href="mailto:csvarunkumar26@gmail.com">Email</a>
+<a href="https://x.com/csvarun26396" target="_blank" rel="noopener noreferrer">X</a>
+<a href="https://substack.com/@csvarun" target="_blank" rel="noopener noreferrer">Substack</a>
+<a href="https://www.linkedin.com/in/csvarun26396/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+<a href="https://github.com/Varunk26" target="_blank" rel="noopener noreferrer">GitHub</a>
 </div>
+<nav class="nav">
+<a href="#writings">Writings</a>
+<a href="#experience">Experience</a>
+<a href="#education">Education</a>
+<a href="#books">Books</a>
+<a href="#contact">Contact</a>
+</nav>
+<h1>Varun Kumar C&nbsp;S</h1>
+<p>Exploring what a platform looks like at the intersection of mass media, journalism, prediction markets and crypto networks.</p>
+</header>
+
+<section class="about">
+<h2 class="label">About</h2>
+<p>From the time I can remember, I've had a burning need to understand where the world came from, how it works, and where it is heading. Growing up, that meant absorbing everything — newspapers, television, books, the internet, social media, podcasts and so on. Newspapers gave us a daily record of the world. Television let us watch it as it happened. Podcasts let anyone go deep on anything. Social media handed the audience a microphone. Each layer moved the public closer to the information. But none of them let people price what they believe.</p>
+<p>Prediction markets are where that gap closes for me. Take a question like "Will there be an Ebola pandemic in 2026?" A headline about an outbreak is written to be read. A viral post is written to be shared. Neither pays a price for being wrong. But when someone places a bet on that question, they have to weigh everything they've read against what they're willing to lose — and the market price that emerges is a signal none of the other layers can produce: what people actually believe, with money behind it. That's not a replacement for existing media — it's a new layer on top of it, one that lets society collectively build a more accurate picture of the world.</p>
+<p>The question I'm sitting with now: understanding where existing prediction markets like Polymarket and Kalshi fall short, and whether it's a gap I can solve.</p>
+</section>
+
+<section class="about">
+<h2 class="label">Passion for Crypto</h2>
+<p>What struck me most is that these aren't just financial networks. They're self-governing systems — networks that organize resources, coordinate strangers, and evolve their own rules without central control. The idea that you can align stakeholders and users by design, rather than by institution, is the most interesting organizational primitive I've encountered. Most people see prices. I see a new way of organizing human effort, still in its earliest chapters.</p>
+</section>
+
+<section class="about">
+<h2 class="label">Skill</h2>
+<p>I've built my career in business development — the craft of taking something new and getting the world to adopt it. Frontier technology doesn't spread on its own merits; someone has to understand it deeply, find the people it serves, and close the gap between the two. That's the work I do.</p>
+</section>
+
+<section class="writings" id="writings">
+<h2 class="label label-gap6">Writings</h2>
+<div class="writings-list">
+<a href="https://csvarun.substack.com/p/everything-ive-learnt-from-doing" target="_blank" rel="noopener noreferrer">Notes from a career in BD</a>
+<a href="https://paragraph.com/@cryptokumar/longterm-economic-sustainability-moat-for-blockchains-after-defi-its-data" target="_blank" rel="noopener noreferrer">Longterm economic sustainability &amp; moat for blockchains — after DeFi, it's Data</a>
+<a href="https://paragraph.com/@cryptokumar/de-fi-datafi-the-digital-economy-nfts-data-as-oil" target="_blank" rel="noopener noreferrer">DeFi &amp; DataFi — the digital economy, NFTs &amp; data as oil</a>
+<a href="https://paragraph.com/@cryptokumar/ranting-about-data-availability" target="_blank" rel="noopener noreferrer">Ranting About Data Availability</a>
+<a href="https://paragraph.com/@cryptokumar/a-self-curated-curriculum-to-learn-blockchain" target="_blank" rel="noopener noreferrer">A self-curated curriculum to learn blockchain</a>
+<a href="https://csvarun.substack.com/p/i-went-to-clean-a-mountain" target="_blank" rel="noopener noreferrer">I Went to Clean a Mountain</a>
+</div>
+</section>
+
+<section class="experience" id="experience">
+<h2 class="label">Experience</h2>
+<div class="experience-list">
+<div class="experience-item">
+<div class="experience-info">
+<div class="experience-title">Business Development · Gelato Network</div>
+<div class="experience-desc">Growing adoption of rollup infrastructure and web3 automation.</div>
+</div>
+<div class="experience-date">Feb '24 — now</div>
+</div>
+<div class="experience-item">
+<div class="experience-info">
+<div class="experience-title">Independent research &amp; advisory</div>
+<div class="experience-desc">Contributed to Safe's token utility framework; value-accrual outlook for a rollup framework.</div>
+</div>
+<div class="experience-date">Mar '23 — Jan '24</div>
+</div>
+<div class="experience-item">
+<div class="experience-info">
+<div class="experience-title">Research &amp; Strategy · Polygon</div>
+<div class="experience-desc">Ecosystem research and strategy through Polygon's fastest-growing years.</div>
+</div>
+<div class="experience-date">Aug '21 — Jan '23</div>
+</div>
+<div class="experience-item">
+<div class="experience-info">
+<div class="experience-title">CRM Solutions Consultant · LeadSquared</div>
+<div class="experience-desc">Full-stack enterprise sales — grew from 10 to 100 enterprise customers, past $1M ARR.</div>
+</div>
+<div class="experience-date">Feb '20 — Jul '21</div>
+</div>
+<div class="experience-item">
+<div class="experience-info">
+<div class="experience-title">Sales &amp; Marketing · Tydy</div>
+<div class="experience-desc">Discovering product-market fit — grew from 1 to 10 enterprise customers with $0 in marketing.</div>
+</div>
+<div class="experience-date">Oct '18 — Jan '20</div>
+</div>
+<div class="experience-item">
+<div class="experience-info">
+<div class="experience-title">Employee Engagement Consultant · d'frens</div>
+<div class="experience-desc">650+ sessions on employee engagement and internal communication with HR teams at MBRDI, MetLife &amp; Fidelity.</div>
+</div>
+<div class="experience-date">Aug '15 — Sep '18</div>
+</div>
+</div>
+</section>
+
+<section class="projects">
+<h2 class="label">Passion Projects</h2>
+<div class="project-item">
+<div class="project-title">Agent Vikram</div>
+<p class="project-desc"><a href="https://www.instagram.com/agent.vikram26/" target="_blank" rel="noopener noreferrer">AI agent</a> tracking macro signals that move BTC, ETH, gold and global markets.</p>
+</div>
+<div class="project-item">
+<div class="project-title">Data as the next moat for blockchains</div>
+<p class="project-desc"><a href="https://paragraph.com/@cryptokumar/longterm-economic-sustainability-moat-for-blockchains-after-defi-its-data" target="_blank" rel="noopener noreferrer">I asked what the next economic layer after DeFi would be</a>, and made the case for tokenized user data. Years later, Worldcoin and Vana built ecosystems around it.</p>
+</div>
+<div class="project-item">
+<div class="project-title">Token utility</div>
+<ul class="project-list">
+<li>Proposed a utility framework for <a href="https://forum.safefoundation.org/t/exploring-the-safe-token-call-for-input-submissions/3952/3?u=varunkcs" target="_blank" rel="noopener noreferrer">Safe's token launch</a>.</li>
+<li>Built a hackathon <a href="https://www.youtube.com/watch?v=CNS1j-SWHsE&t=10s" target="_blank" rel="noopener noreferrer">NFT project</a> incentivizing carbon-negative consumer behavior.</li>
+</ul>
+</div>
+<div class="project-item">
+<div class="project-title">I Went to Clean a Mountain</div>
+<p class="project-desc">An <a href="https://csvarun.substack.com/p/i-went-to-clean-a-mountain" target="_blank" rel="noopener noreferrer">essay on running a waste-management operation</a> in the Himalayas, and realizing what grassroots effort alone can't fix.</p>
+</div>
+</section>
+
+<section class="about">
+<h2 class="label">Off the Clock</h2>
+<p>I write and I code. Blogging is how I think out loud. Hacking on personal projects is how I keep my hands dirty and my ideas honest.</p>
+</section>
+
+<section class="about">
+<h2 class="label">Lifestyle</h2>
+<p>Martial arts, meditation, and the long project of eating better.</p>
+</section>
+
+<section class="education" id="education">
+<h2 class="label">Education</h2>
+<div class="edu-item">
+<div class="edu-name">Visvesvaraya Technological University</div>
+<div class="edu-detail">Engineer's Degree · 2014 — 2018</div>
+</div>
+<div class="edu-item">
+<div class="edu-name">Certifications</div>
+<div class="edu-detail">
+<p>Harvard CS50x &amp; CS50w · Blockchain Specialization, University at Buffalo · Token Engineering Fundamentals, TE Academy · LearnWeb3 Ethereum Developer Degree</p>
+</div>
+</div>
+</section>
+
+<section class="books" id="books">
+<h2 class="label label-gap6">Books</h2>
+<p class="books-intro">Books I return to.</p>
+
+<div class="books-featured">
+
+<div class="book-feature">
+<span class="book-num">01</span>
+<div class="book-body">
+<div class="book-head"><span class="book-title">Understanding Media</span> <span class="book-author">— Marshall McLuhan</span></div>
+<p class="book-note">Every technology is an extension of some human organ or faculty: the gun extends the hand, the camera extends the eye, electricity extends the nervous system. And every extension reshapes us in turn: our biological and social wiring adapts to whatever we've built, whether we notice it or not. McLuhan's core claim, "the medium is the message," is that a new medium creates an environment, and it's the environment that shapes us, not the content inside it. The railway accelerated movement and gave rise to new kinds of cities; the phone accelerated access to the internet and gave rise to new kinds of knowledge workers; the internet itself accelerated the sharing of knowledge, information, and communication. What actually affects us isn't the content that flows through a medium, it's the new environment the technology enables.</p>
+</div>
+</div>
+
+<div class="book-feature">
+<span class="book-num">02</span>
+<div class="book-body">
+<div class="book-head"><span class="book-title">The Social Contract</span> <span class="book-author">— Jean-Jacques Rousseau</span></div>
+<p class="book-note">Rousseau's answer to how people can remain free while living under a state is the social contract: citizens unite their separate powers through a kind of covenant, agreeing to govern themselves as a collective and protect one another's rights. Forming a nation means giving up certain freedoms from the state of nature, but it replaces them with the far more valuable "civil freedom" of society, which lets people develop themselves morally and rationally. A state is only legitimate when the people themselves hold sovereignty: their job is to make the laws and delegate the power to carry them out to a government, while keeping a careful watch to ensure that government never seizes power for itself.</p>
+</div>
+</div>
+
+<div class="book-feature">
+<span class="book-num">03</span>
+<div class="book-body">
+<div class="book-head"><span class="book-title">Scale</span> <span class="book-author">— Geoffrey West</span></div>
+<p class="book-note">West introduces the concept of complexity science and scaling laws, and finds that mammals are essentially scaled versions of one another: know an animal's size and these laws tell you its heart rate, how much it eats, how long it lives. This regularity traces back to the fractal geometry of the networks that supply energy and distribute resources inside the body. The bolder move was showing that cities and companies are built like biological organisms, constellations of the same kind of networks. The laws that govern the cell can be scaled up to the city and the company, all of them following the same simple, powerful rules.</p>
+</div>
+</div>
+
+<div class="book-feature">
+<span class="book-num">04</span>
+<div class="book-body">
+<div class="book-head"><span class="book-title">Imagined Communities</span> <span class="book-author">— Benedict Anderson</span></div>
+<p class="book-note">Anderson argues that nations must be understood as imagined communities, because they are simply too large for any member to actually know all the others. A nation exists only in the sense that each member imagines a relationship with everyone else across time and space. But being imagined doesn't make it any less real: nations are real enough that people are prepared to kill and die for them.</p>
+</div>
+</div>
+
+<div class="book-feature">
+<span class="book-num">05</span>
+<div class="book-body">
+<div class="book-head"><span class="book-title">Debt: The First 5,000 Years</span> <span class="book-author">— David Graeber</span></div>
+<p class="book-note">Graeber traces the history of debt across five thousand years and dismantles the traditional myth that money began with barter, that people traded goods directly, found it clumsy, and invented coins to smooth it over. Drawing on anthropological evidence, he argues the sequence ran the other way: credit and debt came thousands of years before coinage, and coins themselves emerged from warfare and state extraction. His central example is the cycle that provisioned ancient armies. An empire mints coins stamped with the ruler's face and pays them to its soldiers as wages. It then decrees that every peasant and shopkeeper must pay taxes in those same coins. The villagers never needed the coins to live, since they already ran on informal credit and reciprocal obligation, but now they have to acquire them or face punishment, and the only people holding coins are the soldiers stationed nearby. So they sell food, armour, horses, and labour to the army in exchange for coin, then hand that coin back to the treasury as tax, where it is paid out again for the next campaign. In one move the state turns its entire population into a decentralized supply chain for its military, without ever shipping a single sack of grain to the front. What emerges is a view of money not as a commodity with intrinsic worth but as a standardized IOU, a token of debt to society made valuable because the sovereign demands it back, and of debt itself as a force that has shaped social relations, power, and the moral fabric of societies throughout history.</p>
+</div>
+</div>
+
+</div>
+
+<button class="books-toggle" type="button" aria-expanded="false" aria-controls="books-more">Show more</button>
+
+<div class="books-more" id="books-more">
+<div class="book-line"><span class="book-num">06</span><span class="book-head"><span class="book-title">Dopamine Nation</span> <span class="book-author">— Anna Lembke</span></span></div>
+<div class="book-line"><span class="book-num">07</span><span class="book-head"><span class="book-title">1984</span> <span class="book-author">— George Orwell</span></span></div>
+<div class="book-line"><span class="book-num">08</span><span class="book-head"><span class="book-title">The Submission Experiment</span> <span class="book-author">— Michelle Santner</span></span></div>
+<div class="book-line"><span class="book-num">09</span><span class="book-head"><span class="book-title">Driven to Distraction</span> <span class="book-author">— Edward M. Hallowell</span></span></div>
+<div class="book-line"><span class="book-num">10</span><span class="book-head"><span class="book-title">Radical Markets</span> <span class="book-author">— Eric Glen Weyl</span></span></div>
+<div class="book-line"><span class="book-num">11</span><span class="book-head"><span class="book-title">Guns, Germs &amp; Steel</span> <span class="book-author">— Jared Diamond</span></span></div>
+<div class="book-line"><span class="book-num">12</span><span class="book-head"><span class="book-title">Token Economy</span> <span class="book-author">— Shermin Voshmgir</span></span></div>
+<div class="book-line"><span class="book-num">13</span><span class="book-head"><span class="book-title">Think Again</span> <span class="book-author">— Adam Grant</span></span></div>
+<div class="book-line"><span class="book-num">14</span><span class="book-head"><span class="book-title">Brave New World</span> <span class="book-author">— Aldous Huxley</span></span></div>
+<div class="book-line"><span class="book-num">15</span><span class="book-head"><span class="book-title">The Almanack of Naval Ravikant</span> <span class="book-author">— Eric Jorgenson</span></span></div>
+<div class="book-line"><span class="book-num">16</span><span class="book-head"><span class="book-title">Originals</span> <span class="book-author">— Adam Grant</span></span></div>
+<div class="book-line"><span class="book-num">17</span><span class="book-head"><span class="book-title">A Clockwork Orange</span> <span class="book-author">— Anthony Burgess</span></span></div>
+<div class="book-line"><span class="book-num">18</span><span class="book-head"><span class="book-title">The Book of Five Rings</span> <span class="book-author">— Miyamoto Musashi</span></span></div>
+<div class="book-line"><span class="book-num">19</span><span class="book-head"><span class="book-title">The World for Sale</span> <span class="book-author">— Javier Blas &amp; Jack Farchy</span></span></div>
+<div class="book-line"><span class="book-num">20</span><span class="book-head"><span class="book-title">Read Write Own</span> <span class="book-author">— Chris Dixon</span></span></div>
+<div class="book-line"><span class="book-num">21</span><span class="book-head"><span class="book-title">Material World</span> <span class="book-author">— Ed Conway</span></span></div>
+</div>
+</section>
+
+<section class="contact-section" id="contact">
+<h2 class="label label-gap6">Contact</h2>
+<div class="contact-list">
+<a href="mailto:csvarunkumar26@gmail.com">Email — csvarunkumar26@gmail.com</a>
+<a href="https://x.com/csvarun26396" target="_blank" rel="noopener noreferrer">X — @csvarun26396</a>
+<a href="https://substack.com/@csvarun" target="_blank" rel="noopener noreferrer">Substack — csvarun</a>
+<a href="https://www.linkedin.com/in/csvarun26396/" target="_blank" rel="noopener noreferrer">LinkedIn — Varun Kumar</a>
+<a href="https://github.com/Varunk26" target="_blank" rel="noopener noreferrer">GitHub — Varunk26</a>
+</div>
+</section>
+
+</main>
+</div>
+
+<script>
+  (function () {
+    var btn = document.querySelector('.books-toggle');
+    var more = document.getElementById('books-more');
+    if (!btn || !more) return;
+    btn.addEventListener('click', function () {
+      var open = more.classList.toggle('open');
+      btn.textContent = open ? 'Show less' : 'Show more';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  })();
+</script>
 </body>
 </html>
